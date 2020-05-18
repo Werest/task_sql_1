@@ -1,8 +1,8 @@
 select
-    concat_ws(' ', FirstName, MidName, LastName)
-    ,D.Name as Diagno
-    ,substring(convert(varchar, Date, 23), 6, 2) as Mo
-    ,COUNT(D.Name) as Numberko
+    concat_ws(' ', FirstName, MidName, LastName) as ФИО
+    ,D.Name as Диагноз
+    ,substring(convert(varchar, Date, 23), 6, 2) as Месяц
+    ,COUNT(D.Name) as 'Количество посещений'
 from Patients
 join Schedules S on Patients.Id = S.PatientId
 join Diagnoses D on S.DiagnosisId = D.Id
